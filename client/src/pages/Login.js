@@ -27,11 +27,14 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/user/login", {
-        // username: inputs.name,
-        email: inputs.email,
-        password: inputs.password,
-      });
+      const { data } = await axios.post(
+        "https://blog-application-p9hy.onrender.com/api/v1/user/login",
+        {
+          // username: inputs.name,
+          email: inputs.email,
+          password: inputs.password,
+        }
+      );
       if (data.success) {
         localStorage.setItem("userId", data?.user._id);
         dispatch(authActions.login());

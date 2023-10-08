@@ -17,12 +17,15 @@ const CreateBlog = () => {
     e.preventDefault();
     // console.log(inputs)
     try {
-      const { data } = await axios.post("/api/v1/blog/create-blog", {
-        title: inputs.title,
-        description: inputs.description,
-        image: inputs.image,
-        user: id,
-      });
+      const { data } = await axios.post(
+        "https://blog-application-p9hy.onrender.com/api/v1/blog/create-blog",
+        {
+          title: inputs.title,
+          description: inputs.description,
+          image: inputs.image,
+          user: id,
+        }
+      );
       if (data?.success) {
         toast.success("Blog Created");
         navigate("/my-blogs");

@@ -17,7 +17,9 @@ const BlogDetails = () => {
   // get blog details
   const getBlogDetail = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/blog/get-blog/${id}`);
+      const { data } = await axios.get(
+        `https://blog-application-p9hy.onrender.com/api/v1/blog/get-blog/${id}`
+      );
       if (data?.success) {
         setBlog(data?.blog);
         setInputs({
@@ -39,12 +41,15 @@ const BlogDetails = () => {
     e.preventDefault();
     // console.log(inputs)
     try {
-      const { data } = await axios.put(`/api/v1/blog/update-blog/${id}`, {
-        title: inputs.title,
-        description: inputs.description,
-        image: inputs.image,
-        user: id,
-      });
+      const { data } = await axios.put(
+        `https://blog-application-p9hy.onrender.com/api/v1/blog/update-blog/${id}`,
+        {
+          title: inputs.title,
+          description: inputs.description,
+          image: inputs.image,
+          user: id,
+        }
+      );
       if (data?.success) {
         toast.success("Blog Updated");
         navigate("/my-blogs");

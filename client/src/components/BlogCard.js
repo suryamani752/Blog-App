@@ -36,7 +36,9 @@ export default function BlogCard({
 
   const handleDelete = async () => {
     try {
-      const { data } = await axios.delete(`/api/v1/blog/delete-blog/${id}`);
+      const { data } = await axios.delete(
+        `https://blog-application-p9hy.onrender.com/api/v1/blog/delete-blog/${id}`
+      );
       if (data?.success) {
         toast.success("Blog deleted");
         navigate("/my-blogs");

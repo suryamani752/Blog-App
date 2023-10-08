@@ -24,11 +24,14 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/user/register", {
-        username: inputs.name,
-        email: inputs.email,
-        password: inputs.password,
-      });
+      const { data } = await axios.post(
+        "https://blog-application-p9hy.onrender.com/api/v1/user/register",
+        {
+          username: inputs.name,
+          email: inputs.email,
+          password: inputs.password,
+        }
+      );
       if (data.success) {
         toast.success("user Register Successfully");
         navigate("/login");
